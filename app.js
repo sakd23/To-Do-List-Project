@@ -9,8 +9,8 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 app.use(express.static("public"));
-
-let new_item = [];
+var dayType=new Date().toLocaleString('en-us', {  weekday: 'long' })
+// let new_item = [];
 // var workList=[];
 
 mongoose.connect("mongodb+srv://admin-saksham:test123@cluster0.avz9t.mongodb.net/toDoListDB?retryWrites=true&w=majority");
@@ -63,7 +63,7 @@ app.get("/", function(req, res) {
         res.redirect("/");
       }
       else {
-        let dayType = date.getDay();
+
         //in response we render a html template named index.ejs and replace a marker named day with daytype
         //ejs looks for index file in a folder named views
         res.render("index", {
@@ -110,7 +110,7 @@ app.get("/:listTitle", function(req, res) {
 });
 
 app.post("/", function(req, res) {
-  let dayType = date.getDay();
+
   const curr_item = req.body.list_item;
   const listName=req.body.button;
   const item = new Item({
@@ -147,7 +147,7 @@ app.post("/delete", function(req, res) {
   const itemChecked = req.body.checkbox;
   const listName=req.body.listName;
   // console.log(listName);
-let dayType = date.getDay();
+
 
 if(listName===dayType)
 {
