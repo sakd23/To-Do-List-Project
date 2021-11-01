@@ -9,7 +9,7 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 app.use(express.static("public"));
-var dayType=new Date().toLocaleString('en-us', {  weekday: 'long' })
+var dayType="Today";
 // let new_item = [];
 // var workList=[];
 
