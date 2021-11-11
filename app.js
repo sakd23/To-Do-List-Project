@@ -5,11 +5,9 @@ const mongoose = require("mongoose");
 var _ = require('lodash');
 const app = express();
 app.set('view engine', 'ejs'); //sets view engine to ejs.
-app.use(bodyParser.urlencoded({
-  extended: true
-}));
+app.use(bodyParser.urlencoded({ extended: true}));
 app.use(express.static("public"));
-var dayType="Today";
+var dayType="today's tasks";
 // let new_item = [];
 // var workList=[];
 
